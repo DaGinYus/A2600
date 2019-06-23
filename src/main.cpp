@@ -29,7 +29,7 @@ void hexdump(char* buffer, int buffersize) {
             std::cout << std::hex << std::setfill('0') << std::setw(2);
             std::cout << static_cast<unsigned int>(static_cast<unsigned char>(buffer[index])) << ' ';
         }
-        std::cout << '\n';
+        std::cout << std::endl;
     }
 }
 
@@ -44,14 +44,16 @@ int main(int argc, char* argv[]) {
         rom_file.read(code_buf, size);
 
         // hex dump rom
+        std::cout << "== hexdump ==" << std::endl;
         hexdump(code_buf, size);
 
+        std::cout << "== disassembly ==" << std::endl;
         // dump disassembly
         disassemble_rom(code_buf, size);
 
         rom_file.close();
     } else {
-        std::cout << "could not open file\n";
+        std::cout << "could not open file" << std::endl;
     }
 
     return 0;
