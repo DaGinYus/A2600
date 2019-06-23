@@ -46,6 +46,9 @@ int main(int argc, char* argv[]) {
         // hex dump rom
         hexdump(code_buf, size);
 
+        // dump disassembly
+        disassemble_rom(code_buf, size);
+
         rom_file.close();
     } else {
         std::cout << "could not open file\n";
