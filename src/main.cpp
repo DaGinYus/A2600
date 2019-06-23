@@ -1,6 +1,8 @@
 #include <fstream>
-#include <iomanip>
 #include <iostream>
+#include <iomanip>
+
+#include "disassembler.h"
 
 /* testing opcode parsing with a disassembler */
 
@@ -32,30 +34,22 @@ void hexdump(char* buffer, int buffersize) {
 }
 
 int main(int argc, char* argv[]) {
-    char* codebuffer;
+    char* code_buf;
 
     std::ifstream rom_file(argv[1], std::ifstream::binary);
     if (rom_file.is_open()) {
-        //get size of the file
+        // load rom file
         int size = get_filesize(rom_file);
+        code_buf = new char[size];
+        rom_file.read(code_buf, size);
 
-        //allocate memory
-        codebuffer = new char[size];
-
-        //read file
-        rom_file.read(codebuffer, size);
-
-        //hex dump, for testing
-        hexdump(codebuffer, size);
+        // hex dump rom
+        hexdump(code_buf, size);
 
         rom_file.close();
     } else {
-        std::cout << "Could not open file\n";
+        std::cout << "could not open file\n";
     }
-
-    //parse codebuffer into assembly
-    int pc = 0; //pc is program counter, or count of each instruction in the program
-    //while (pc < size) {
 
     return 0;
 }
