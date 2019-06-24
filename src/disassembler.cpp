@@ -153,11 +153,11 @@ void disassemble_rom(char* buf, int size) {
             sz = 1;
             break;
         case CLV:
-            name = "BVS_REL";
+            name = "CLV";
             sz = 1;
             break;
         case CMP_AB:
-            name = "ADC_AB";
+            name = "CMP_AB";
             sz = 3;
             break;
         case CMP_ABX:
