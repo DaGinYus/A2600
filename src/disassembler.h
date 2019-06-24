@@ -77,6 +77,142 @@ void disassemble_rom(char* buf, int size) {
             name = "AND_ZPX";
             sz = 2;
             break;
+        case ASL_AB:
+            name = "ASL_AB";
+            sz = 3;
+            break;
+        case ASL_ABX:
+            name = "ASL_ABX";
+            sz = 3;
+            break;
+        case ASL_ACC:
+            name = "ASL_ACC";
+            sz = 1;
+            break;
+        case ASL_ZP:
+            name = "ASL_ZP";
+            sz = 2;
+            break;
+        case ASL_ZPX:
+            name = "ASL_ZPX";
+            sz = 2;
+            break;
+        case BCC_REL:
+            name = "BCC_REL";
+            sz = 2;
+            break;
+        case BCS_REL:
+            name = "BCS_REL";
+            sz = 2;
+            break;
+        case BEQ_REL:
+            name = "BEQ_REL";
+            sz = 2;
+            break;
+        case BIT_AB:
+            name = "BIT_AB";
+            sz = 3;
+            break;
+        case BIT_ZP:
+            name = "BIT_ZP";
+            sz = 2;
+            break;
+        case BMI_REL:
+            name = "BMI_REL";
+            sz = 2;
+            break;
+        case BNE_REL:
+            name = "BNE_REL";
+            sz = 2;
+            break;
+        case BPL_REL:
+            name = "BPL_REL";
+            sz = 2;
+            break;
+        case BRK:
+            name = "BRK";
+            sz = 1;
+            break;
+        case BVC_REL:
+            name = "BVC_REL";
+            sz = 2;
+            break;
+        case BVS_REL:
+            name = "BVS_REL";
+            sz = 2;
+            break;
+        case CLC:
+            name = "CLC";
+            sz = 1;
+            break;
+        case CLD:
+            name = "CLD";
+            sz = 1;
+            break;
+        case CLI:
+            name = "CLI";
+            sz = 1;
+            break;
+        case CLV:
+            name = "BVS_REL";
+            sz = 1;
+            break;
+        case CMP_AB:
+            name = "ADC_AB";
+            sz = 3;
+            break;
+        case CMP_ABX:
+            name = "CMP_ABX";
+            sz = 3;
+            break;
+        case CMP_ABY:
+            name = "CMP_ABY";
+            sz = 3;
+            break;
+        case CMP_IMM:
+            name = "CMP_IMM";
+            sz = 2;
+            break;
+        case CMP_INX:
+            name = "CMP_INX";
+            sz = 2;
+            break;
+        case CMP_INY:
+            name = "CMP_INY";
+            sz = 2;
+            break;
+        case CMP_ZP:
+            name = "CMP_ZP";
+            sz = 2;
+            break;
+        case CMP_ZPX:
+            name = "CMP_ZPX";
+            sz = 2;
+            break;
+        case CPX_AB:
+            name = "CPX_AB";
+            sz = 3;
+            break;
+        case CPX_IMM:
+            name = "CPX_IMM";
+            sz = 2;
+            break;
+        case CPX_ZP:
+            name = "CPX_ZP";
+            sz = 2;
+            break;
+        case CPY_AB:
+            name = "CPY_AB";
+            sz = 3;
+            break;
+        case CPY_IMM:
+            name = "CPY_IMM";
+            sz = 2;
+            break;
+        case CPY_ZP:
+            name = "CPY_ZP";
+            sz = 2;
+            break;
         case JMP_AB:
             name = "JMP_AB";
             sz = 3;
