@@ -12,114 +12,44 @@ void disassemble_rom(char* buf, int size) {
         std::string name = "?";
         // skipping a lot of alphabetical shit
         switch (op) {
-        case ADC_AB:
-            name = "ADC_AB";
-            sz = 3;
-            break;
-        case ADC_ABX:
-            name = "ADC_ABX";
-            sz = 3;
-            break;
-        case ADC_ABY:
-            name = "ADC_ABY";
-            sz = 3;
-            break;
-        case ADC_IMM:
-            name = "ADC_IMM";
-            sz = 2;
-            break;
-        case ADC_INX:
-            name = "ADC_INX";
-            sz = 2;
-            break;
-        case ADC_INY:
-            name = "ADC_INY";
-            sz = 2;
-            break;
-        case ADC_ZP:
-            name = "ADC_ZP";
-            sz = 2;
-            break;
-        case ADC_ZPX:
-            name = "ADC_ZPX";
-            sz = 2;
-            break;
-        case AND_AB:
-            name = "AND_AB";
-            sz = 3;
-            break;
-        case AND_ABX:
-            name = "AND_ABX";
-            sz = 3;
-            break;
-        case AND_ABY:
-            name = "AND_ABY";
-            sz = 3;
-            break;
-        case AND_IMM:
-            name = "AND_IMM";
-            sz = 2;
-            break;
-        case AND_INX:
-            name = "AND_INX";
-            sz = 2;
-            break;
-        case AND_INY:
-            name = "AND_INY";
-            sz = 2;
-            break;
-        case AND_ZP:
-            name = "AND_ZP";
-            sz = 2;
-            break;
-        case AND_ZPX:
-            name = "AND_ZPX";
-            sz = 2;
-            break;
-        case ASL_AB:
-            name = "ASL_AB";
-            sz = 3;
-            break;
-        case ASL_ABX:
-            name = "ASL_ABX";
-            sz = 3;
-            break;
-        case ASL_ACC:
-            name = "ASL_ACC";
-            sz = 1;
-            break;
-        case ASL_ZP:
-            name = "ASL_ZP";
-            sz = 2;
-            break;
-        case ASL_ZPX:
-            name = "ASL_ZPX";
-            sz = 2;
-            break;
-        case BCC_REL:
-            name = "BCC_REL";
-            sz = 2;
-            break;
-        case BCS_REL:
-            name = "BCS_REL";
-            sz = 2;
-            break;
-        case BEQ_REL:
-            name = "BEQ_REL";
-            sz = 2;
-            break;
-        case BIT_AB:
-            name = "BIT_AB";
-            sz = 3;
-            break;
-        case BIT_ZP:
-            name = "BIT_ZP";
-            sz = 2;
-            break;
-        case BMI_REL:
-            name = "BMI_REL";
-            sz = 2;
-            break;
+	/* ADD WITH CARRY: This instruction adds the contents of a memory location to the accumulator
+	   together with the carry bit. If overflow occurs the carry bit is set, this
+	   enables multiple byte addition to be performed. */
+        case ADC_AB:  name = "ADC_AB";  sz = 3; break;
+        case ADC_ABX: name = "ADC_ABX"; sz = 3; break;
+        case ADC_ABY: name = "ADC_ABY"; sz = 3; break;
+        case ADC_IMM: name = "ADC_IMM"; sz = 2; break;
+        case ADC_INX: name = "ADC_INX"; sz = 2; break;
+        case ADC_INY: name = "ADC_INY"; sz = 2; break;
+        case ADC_ZP:  name = "ADC_ZP";  sz = 2; break;
+        case ADC_ZPX: name = "ADC_ZPX"; sz = 2; break;
+	/* LOGICAL AND: A logical AND is performed, bit by bit, on the accumulator contents using the
+	   contents of a byte of memory. */    
+        case AND_AB:  name = "AND_AB";  sz = 3; break;
+        case AND_ABX: name = "AND_ABX"; sz = 3; break;
+        case AND_ABY: name = "AND_ABY"; sz = 3; break;
+        case AND_IMM: name = "AND_IMM"; sz = 2; break;
+        case AND_INX: name = "AND_INX"; sz = 2; break;
+        case AND_INY: name = "AND_INY"; sz = 2; break;
+        case AND_ZP:  name = "AND_ZP";  sz = 2; break;
+        case AND_ZPX: name = "AND_ZPX"; sz = 2; break;
+	    
+        case ASL_AB:  name = "ASL_AB";  sz = 3; break;
+        case ASL_ABX: name = "ASL_ABX"; sz = 3; break;
+        case ASL_ACC: name = "ASL_ACC"; sz = 1; break;
+        case ASL_ZP:  name = "ASL_ZP";  sz = 2; break;
+        case ASL_ZPX: name = "ASL_ZPX"; sz = 2; break;
+	    
+        case BCC_REL: name = "BCC_REL"; sz = 2; break;
+	    
+        case BCS_REL: name = "BCS_REL"; sz = 2; break;
+	    
+        case BEQ_REL: name = "BEQ_REL"; sz = 2; break;
+	    
+        case BIT_AB:  name = "BIT_AB";  sz = 3; break;
+        case BIT_ZP:  name = "BIT_ZP";  sz = 2; break;
+	    
+        case BMI_REL: name = "BMI_REL"; sz = 2; break;
         case BNE_REL:
             name = "BNE_REL";
             sz = 2;
@@ -220,6 +150,9 @@ void disassemble_rom(char* buf, int size) {
             name = "JMP_IN";
             sz = 3;
             break;
+	case JSR_AB:
+	    name = "JSR_AB";
+	    sz = 
         default:
             break;
         }
